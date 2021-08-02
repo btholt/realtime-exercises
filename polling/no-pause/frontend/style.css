@@ -1,0 +1,13 @@
+.page-column {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+h1 {
+  text-align: center;
+  color: #26a69a;
+}
+
+.btn-box {
+  text-align: center;
+}

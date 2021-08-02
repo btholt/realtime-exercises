@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polling Chat</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Chat With Me</h1>
+
+  <div class="row page-column">
+
+    <form id="chat" class="col s12">
+      <div class="row">
+
+        <div class="input-field col s3">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="user" type="text" class="validate">
+          <label for="user">User Name</label>
+        </div>
+
+        <div class="input-field col s9">
+          <i class="material-icons prefix">message</i>
+          <input id="text" type="tel" class="validate">
+          <label for="text">Message</label>
+        </div>
+      </div>
+
+      <div class="col s12 btn-box">
+        <button class="btn teal lighten-1 waves-effect waves-light" type="submit">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <ul class="collection page-column" id="msgs">
+    <!-- messages will render here -->
+  </ul>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="polling-chat.js"></script>
+</body>
+</html>
