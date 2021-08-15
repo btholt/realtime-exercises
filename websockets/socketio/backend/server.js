@@ -22,6 +22,8 @@ const server = http.createServer((request, response) => {
 const io = new Server(server, {});
 
 io.on("connection", (socket) => {
+  console.log(`connected: ${socket.id}`);
+
   socket.emit("msg:get", { msg: getMsgs() });
 
   socket.on("msg:post", (data) => {
