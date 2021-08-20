@@ -29,13 +29,11 @@ const server = http2.createSecureServer({
   key: fs.readFileSync(path.join(__dirname, "/../key.pem")),
 });
 
-server.on("stream", (stream, headers) => {
-  /*
-   *
-   * Code goes here
-   *
-   */
-});
+/*
+ *
+ * Code goes here
+ *
+ */
 
 server.on("request", async (req, res) => {
   const path = req.headers[":path"];
