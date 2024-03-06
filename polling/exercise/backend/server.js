@@ -10,7 +10,7 @@ const getMsgs = () => Array.from(msg).reverse();
 // feel free to take out, this just seeds the server with at least one message
 msg.push({
   user: "Adeline",
-  text: "hello",
+  text: "Hello",
   time: Date.now(),
 });
 
