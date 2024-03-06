@@ -4,6 +4,9 @@ const presence = document.getElementById("presence-indicator");
 
 // this will hold all the most recent messages
 let allChat = [];
+let reader;
+let readerRes;
+let done;
 
 chat.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -32,11 +35,37 @@ async function postNewMsg(user, text) {
 }
 
 async function getNewMsgs() {
-  /*
-   *
-   * code goes here
-   *
-   */
+  const utf8Decoder = new TextDecoder("utf-8");
+  try {
+    const res = await fetch("/msgs");
+    //reader is for continuous stream of data
+    reader = res.body.getReader();
+  } catch (e) {
+    console.error(e);
+  }
+  presence.innerText = "🟢";
+  do {
+    try {
+      readerRes = await reader.read();
+    } catch (e) {
+      console.error("reader fail", e);
+      presence.innerText = "🔴";
+      return;
+    }
+    const chunck = utf8Decoder.decode(readerRes.value, { stream: true });
+    done = readerRes.done;
+
+    if (chunck) {
+      try {
+        const json = JSON.parse(chunck);
+        allChat = json.msg;
+        render();
+      } catch (e) {
+        console.error("parse error", e);
+      }
+    }
+  } while (!done);
+  presence.innerText = "🔴";
 }
 
 function render() {

@@ -56,6 +56,7 @@ function render() {
 const template = (user, msg) =>
   `<li class="collection-item"><span class="badge">${user}</span>${msg}</li>`;
 
+
 const BACKOFF = 5000;
 let timeToMakeNextRequest = 0;
 let failedTries = 0;
