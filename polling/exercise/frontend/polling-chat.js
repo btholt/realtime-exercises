@@ -15,14 +15,27 @@ chat.addEventListener("submit", function (e) {
 });
 
 async function postNewMsg(user, text) {
+   const data = { 
+    user, 
+    text
+    };
 
-}
+   const options = {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    };
+
+    await fetch("/poll", options);
+   }
 
 async function getNewMsgs() {
-  let json ;
+  let jsonData ;
   try{
     const res = await fetch("/poll");
-    json = await res.json();
+    jsonData = await res.json();
   } catch(e){
     //back off and try again
      console.error('polling error', e);
