@@ -21,23 +21,24 @@ app.use(bodyParser.json());
 app.use(express.static("frontend"));
 
 app.get("/poll", function (req, res) {
+  // res.status(Math.random() > .5 ? 200 : 500).json({
   res.json({
     msg: getMsgs(),
   });
 });
 
 app.post("/poll", function (req, res) {
- const { user, text } = req.body;
+  const { user, text } = req.body;
 
- msg.push({
-   user,
-   text,
-   time: Date.now(),
- });
+  msg.push({
+    user,
+    text,
+    time: Date.now(),
+  });
 
- res.json({
-   status: "ok",
- });
+  res.json({
+    status: "ok",
+  });
 });
 
 // start the server
